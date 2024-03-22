@@ -12,7 +12,7 @@ public abstract class LibraryItem {
     @Column(unique = true, nullable = false)
     private Long isbn; // ASSUMIAMO CHE GLI ISBN SIANO DEI LONG INT
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String title;
 
     @Column(name = "publication_year")
@@ -29,5 +29,39 @@ public abstract class LibraryItem {
         this.publicationYear = publicationYear;
         this.numberOfPages = numberOfPages;
     }
+
+    public Long getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    public void setNumberOfPages(int numberOfPages) {
+        this.numberOfPages = numberOfPages;
+    }
+
+
 }
 
