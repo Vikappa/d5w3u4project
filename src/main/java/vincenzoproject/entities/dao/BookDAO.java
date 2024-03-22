@@ -32,4 +32,10 @@ public class BookDAO extends LibraryItemDAO {
     public List<Book> findAllBooks() {
         return entityManager.createQuery("SELECT b FROM Book b", Book.class).getResultList();
     }
+    public List<Book> findByAuthor(String author) {
+        return entityManager.createQuery("SELECT b FROM Book b WHERE b.author = :author", Book.class)
+                .setParameter("author", author)
+                .getResultList();
+    }
+
 }

@@ -44,10 +44,11 @@ public class Book extends LibraryItem {
     public String toString() {
         return "Book{" +
                 "title='" + getTitle() + '\'' +
-                "author='" + author + '\'' +
-                ", genre='" + genre + '\'' +
-                ", NumberOfPages='" + getNumberOfPages() + '\'' +
-                "ISBN=" + getIsbn() +
+                " author='" + author + '\'' +
+                " , genre='" + genre + '\'' +
+                " , publication year='" + getPublicationYear() + '\'' +
+                " , NumberOfPages='" + getNumberOfPages() + '\'' +
+                " ISBN=" + getIsbn() +
                 '}';
     }
 }

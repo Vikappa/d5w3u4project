@@ -45,9 +45,10 @@ public class Magazine extends LibraryItem {
     public String toString() {
         return "Magazine{" +
                 "title=" + getTitle() +
-                "number of pages=" + getNumberOfPages() +
-                "publicationTime=" + publicationTime +
-                "ISBN=" + getIsbn() +
+                " number of pages=" + getNumberOfPages() +
+                " publicationTime=" + publicationTime +
+                ", publication year='" + getPublicationYear() + '\'' +
+                " ISBN=" + getIsbn() +
                 '}';
     }
 }
