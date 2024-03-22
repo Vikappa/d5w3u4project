@@ -23,4 +23,9 @@ public class MagazineDAO extends LibraryItemDAO {
                 .setParameter("year", year)
                 .getResultList();
     }
+    public List<Magazine> findAllMagazines() {
+        return entityManager.createQuery("SELECT m FROM Magazine m", Magazine.class).getResultList();
+    }
+
+
 }

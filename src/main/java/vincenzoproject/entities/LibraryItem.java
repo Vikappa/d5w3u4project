@@ -62,6 +62,14 @@ public abstract class LibraryItem {
         this.numberOfPages = numberOfPages;
     }
 
-
+    @Override
+    public String toString() {
+        return "LibraryItem{" +
+                "isbn=" + isbn +
+                ", title='" + title + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", numberOfPages=" + numberOfPages +
+                '}';
+    }
 }
 

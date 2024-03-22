@@ -40,4 +40,14 @@ public class Magazine extends LibraryItem {
     public void setPublicationTime(vincenzoproject.entities.publicationTime publicationTime) {
         this.publicationTime = publicationTime;
     }
+
+    @Override
+    public String toString() {
+        return "Magazine{" +
+                "title=" + getTitle() +
+                "number of pages=" + getNumberOfPages() +
+                "publicationTime=" + publicationTime +
+                "ISBN=" + getIsbn() +
+                '}';
+    }
 }

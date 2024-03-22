@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import vincenzoproject.entities.Loan;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class LoanDAO {
 
@@ -33,6 +34,16 @@ public class LoanDAO {
         } else {
             throw new IllegalArgumentException("No loan found with id: " + id);
         }
+    }
+
+    public List<Loan> findAllLoans() {
+        return entityManager.createQuery("SELECT l FROM Loan l", Loan.class).getResultList();
+    }
+
+    public List<Loan> findLoansByUserCardNumber(String cardNumber) {
+        return entityManager.createQuery("SELECT l FROM Loan l WHERE l.user.cardNumber = :cardNumber", Loan.class)
+                .setParameter("cardNumber", cardNumber)
+                .getResultList();
     }
 
 }

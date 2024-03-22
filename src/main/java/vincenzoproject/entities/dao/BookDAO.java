@@ -29,4 +29,7 @@ public class BookDAO extends LibraryItemDAO {
                 .setParameter("year", year)
                 .getResultList();
     }
+    public List<Book> findAllBooks() {
+        return entityManager.createQuery("SELECT b FROM Book b", Book.class).getResultList();
+    }
 }

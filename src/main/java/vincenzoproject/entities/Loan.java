@@ -21,10 +21,10 @@ public class Loan {
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;
 
-    @Column(name = "end_date", nullable = false)
+    @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "expected_return_date", nullable = false)
+    @Column(name = "expected_return_date")
     private LocalDate expectedReturnDate;
 
     @Column(name = "actual_return_date")
@@ -94,5 +94,16 @@ public class Loan {
         this.endDate = endDate;
         this.expectedReturnDate = startDate.plusDays(30);
         this.actualReturnDate = actualReturnDate;
+    }
+    public Loan(User user, LibraryItem libraryItem, LocalDate startDate, LocalDate endDate) {
+        this.user = user;
+        this.libraryItem = libraryItem;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.expectedReturnDate = startDate.plusDays(30);
+    }
+
+    public void updateExpectedReturnDate() {
+        this.expectedReturnDate = this.startDate.plusDays(30);
     }
 }

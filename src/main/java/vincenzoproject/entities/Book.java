@@ -40,4 +40,14 @@ public class Book extends LibraryItem {
         this.genre = genre;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "title='" + getTitle() + '\'' +
+                "author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", NumberOfPages='" + getNumberOfPages() + '\'' +
+                "ISBN=" + getIsbn() +
+                '}';
+    }
 }
