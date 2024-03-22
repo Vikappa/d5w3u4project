@@ -6,9 +6,11 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import vincenzoproject.entities.Book;
 import vincenzoproject.entities.Magazine;
+import vincenzoproject.entities.User;
 import vincenzoproject.entities.dao.BookDAO;
-import vincenzoproject.entities.dao.LibraryItemDAO;
+import vincenzoproject.entities.dao.LoanDAO;
 import vincenzoproject.entities.dao.MagazineDAO;
+import vincenzoproject.entities.dao.UserDAO;
 
 public class Application {
     static Faker faker = new Faker();
@@ -16,8 +18,10 @@ public class Application {
 
     public static void main(String[] args) {
         EntityManager em = emf.createEntityManager();
+        UserDAO userDAO = new UserDAO(em);
         BookDAO bookDAO = new BookDAO(em);
         MagazineDAO magaDao = new MagazineDAO(em);
+        LoanDAO loanDAO = new LoanDAO(em);
 
         Book testBook = new Book();
         Magazine testMaga = new Magazine();
@@ -38,6 +42,19 @@ public class Application {
         magaDao.addMagazine(testMaga);
 
         em.clear();
+
+        User user1 = new User();
+        user1.setCardNumber(faker.idNumber().valid());
+        user1.setFirstName(faker.name().firstName());
+        user1.setLastName(faker.name().lastName());
+        user1.setBirthDate(faker.date().birthday());
+        userDAO.addUser(user1);
+
+        User user2 = new User();
+        user2.setCardNumber(faker.idNumber().valid());
+        user2.setFirstName(faker.name().firstName());
+        user2.setLastName(faker.name().lastName());
+        userDAO.addUser(user2);
 
         em.close();
         emf.close();
