@@ -45,5 +45,11 @@ public class LoanDAO {
                 .setParameter("cardNumber", cardNumber)
                 .getResultList();
     }
-
+    public List<Loan> findOverdueLoans() {
+        LocalDate today = LocalDate.now();
+        return entityManager.createQuery(
+                        "SELECT l FROM Loan l WHERE l.endDate < :today AND l.actualReturnDate IS NULL", Loan.class)
+                .setParameter("today", today)
+                .getResultList();
+    }
 }

@@ -128,6 +128,13 @@ public class Application {
         System.out.println("");
         LIDAO.findBooksLoanedByUser(user1.getCardNumber()).forEach(System.out::println);
 
+        System.out.println("");
+        System.out.println("-------------------------------------------------------------------");
+        System.out.println("RICERCA PRESTITI CON DATA DI SCADENZA PRECEDENTE ALLA DATA CORRENTE NON RESTITUITI:");
+        System.out.println("(modificare manualmente il database per effettuare test)");
+        List<Loan> resList4 = loanDAO.findOverdueLoans();
+        resList4.forEach(System.out::println);
+
         em.close();
         emf.close();
     }
